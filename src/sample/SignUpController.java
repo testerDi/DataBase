@@ -22,48 +22,66 @@ public class SignUpController {
     private URL location;
 
     @FXML
-    private RadioButton admin;
+    private RadioButton Admin;
 
     @FXML
-    private TextField login_field;
+    private RadioButton Doc;
 
     @FXML
-    private TextField password_field;
+    private RadioButton Registr;
 
     @FXML
-    private TextField name_field;
+    private RadioButton Nurse;
+
+    @FXML
+    private TextField Patronymic;
+
+    @FXML
+    private TextField Name;
+
+    @FXML
+    private TextField Login;
+
+    @FXML
+    private TextField Password;
+
+    @FXML
+    private TextField Firstname;
 
     @FXML
     private Button SignUp;
-
-    @FXML
-    private RadioButton doc;
-
-    @FXML
-    private RadioButton registr;
-
-    @FXML
-    private RadioButton nurse;
 
     @FXML
     private Button BackButton;
 
     @FXML
     void initialize() {
-        BackButton.setOnAction(actionEvent -> {
-            BackButton.getScene().getWindow().hide();
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("Login.fxml"));
-            try {
-                loader.load();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            Parent root = loader.getRoot ();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.showAndWait();
-        } );
+        SignUp.setOnAction(event -> {
+            signUpNewUser();
+    });
+    }
+        private void signUpNewUser (){
+        DataBaseConnect DBConnect = new DataBaseConnect();
+
+            String login = Login.getText();
+            String password = Password.getText();
+            String firstname = Firstname.getText();
+            String name = Name.getText();
+            String patronymic = Patronymic.getText();
+            String post = "";
+            if (Admin.isSelected())
+                post = "Admin";
+            else if (Doc.isSelected())
+                post = "Doctor";
+            else if (Nurse.isSelected())
+                post = "Nurse";
+            else if (Registr.isSelected())
+                post = "Registrator";
+
+            User user = new User(firstname, name, patronymic, login, password, post);
+
+            DBConnect.signUpUser(user);
+
 
     }
 }
