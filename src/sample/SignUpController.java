@@ -56,6 +56,20 @@ public class SignUpController {
 
     @FXML
     void initialize() {
+        BackButton.setOnAction(actionEvent -> {
+            BackButton.getScene().getWindow().hide();
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("Login.fxml"));
+            try {
+                loader.load();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Parent root = loader.getRoot ();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.showAndWait();
+        } );
         SignUp.setOnAction(event -> {
             signUpNewUser();
     });
