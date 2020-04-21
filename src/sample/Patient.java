@@ -5,28 +5,31 @@ public class Patient {
     private String name;
     private String patronymic;
     private String birthdate;
-    private String insurance_number;
-    private String first_diagnose;
-    private String second_diagnose;
+    private String insurance;
+    private String fDiagnose;
+    private String sDiagnose;
     private String anamnesis;
-    private String add_diagnostics;
+    private String diagnostics;
     private String treatment;
+    private String gender;
 
 
-    public Patient(String firstname, String name, String patronymic, String birthdate,
-                   String insurance_number, String first_diagnose, String second_diagnose,
-                   String anamnesis, String add_diagnostics, String treatment) {
+    public Patient(String firstname, String name, String patronymic, String birthdate, String insurance,
+                   String fDiagnose, String sDiagnose, String anamnesis, String diagnostics, String treatment, String gender) {
+
         this.firstname = firstname;
         this.name = name;
         this.patronymic = patronymic;
         this.birthdate = birthdate;
-        this.insurance_number = insurance_number;
-        this.first_diagnose = first_diagnose;
-        this.second_diagnose = second_diagnose;
+        this.insurance = insurance;
+        this.fDiagnose = fDiagnose;
+        this.sDiagnose = sDiagnose;
         this.anamnesis = anamnesis;
-        this.add_diagnostics = add_diagnostics;
+        this.diagnostics = diagnostics;
         this.treatment = treatment;
+        this.gender = gender;
     }
+
     public String getFirstname() {
         return firstname;
     }
@@ -59,28 +62,28 @@ public class Patient {
         this.birthdate = birthdate;
     }
 
-    public String getInsurance_number() {
-        return insurance_number;
+    public String getInsurance() {
+        return insurance;
     }
 
-    public void setInsurance_number(String insurance_number) {
-        this.insurance_number = insurance_number;
+    public void setInsurance(String insurance) {
+        this.insurance = insurance;
     }
 
-    public String getFirst_diagnose() {
-        return first_diagnose;
+    public String getfDiagnose() {
+        return fDiagnose;
     }
 
-    public void setFirst_diagnose(String first_diagnose) {
-        this.first_diagnose = first_diagnose;
+    public void setfDiagnose(String fDiagnose) {
+        this.fDiagnose = fDiagnose;
     }
 
-    public String getSecond_diagnose() {
-        return second_diagnose;
+    public String getsDiagnose() {
+        return sDiagnose;
     }
 
-    public void setSecond_diagnose(String second_diagnose) {
-        this.second_diagnose = second_diagnose;
+    public void setsDiagnose(String sDiagnose) {
+        this.sDiagnose = sDiagnose;
     }
 
     public String getAnamnesis() {
@@ -91,12 +94,12 @@ public class Patient {
         this.anamnesis = anamnesis;
     }
 
-    public String getAdd_diagnostics() {
-        return add_diagnostics;
+    public String getDiagnostics() {
+        return diagnostics;
     }
 
-    public void setAdd_diagnostics(String add_diagnostics) {
-        this.add_diagnostics = add_diagnostics;
+    public void setDiagnostics(String diagnostics) {
+        this.diagnostics = diagnostics;
     }
 
     public String getTreatment() {
@@ -107,4 +110,11 @@ public class Patient {
         this.treatment = treatment;
     }
 
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
 }

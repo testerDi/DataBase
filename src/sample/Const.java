@@ -21,6 +21,6 @@ public class Const {
     public static final String PATIENT_ANAMNESIS = "anamnesis";
     public static final String PATIENT_ADDDIAGNOSTICS = "add_diagnostics";
     public static final String PATIENT_TREATMENT = "treatment";
-
+    public static final String PATIENT_GENDER = "gender";
 
 }
