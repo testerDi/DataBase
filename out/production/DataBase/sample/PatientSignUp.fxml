@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="750.0" style="-fx-background-color: #008080;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PatientController">
+   <children>
+      <AnchorPane layoutX="-1.0" layoutY="75.0" prefHeight="375.0" prefWidth="750.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <TextField fx:id="FirstName" layoutX="14.0" layoutY="27.0" promptText="Фамилия" />
+            <TextField fx:id="Patronymic" layoutX="436.0" layoutY="27.0" promptText="Отчество" />
+            <TextField fx:id="Name" layoutX="223.0" layoutY="27.0" promptText="Имя" />
+            <TextField fx:id="BirthDate" layoutX="374.0" layoutY="80.0" promptText="Дата рождения" />
+            <TextField fx:id="Insurance" layoutX="140.0" layoutY="80.0" promptText="№ Страховки" />
+            <TextField fx:id="FDiagnose" layoutX="411.0" layoutY="138.0" prefHeight="50.0" prefWidth="300.0" promptText="Предварительный диагноз" />
+            <TextField fx:id="SDiagnose" layoutX="522.0" layoutY="225.0" prefHeight="50.0" prefWidth="220.0" promptText="Окончательный диагноз" />
+            <TextField fx:id="Anamnesis" layoutX="14.0" layoutY="138.0" prefHeight="50.0" prefWidth="300.0" promptText="Анамнез" />
+            <TextField fx:id="Diagnostics" layoutX="268.0" layoutY="225.0" prefHeight="50.0" prefWidth="220.0" promptText="Доп. диагностика" />
+            <TextField fx:id="Treatment" layoutX="14.0" layoutY="225.0" prefHeight="50.0" prefWidth="220.0" promptText="Лечение" />
+            <Button fx:id="AddPatient" layoutX="308.0" layoutY="307.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="140.0" text="Добавить" />
+            <RadioButton fx:id="Male" layoutX="621.0" layoutY="19.0" mnemonicParsing="false" text="Мужчина">
+               <toggleGroup>
+                  <ToggleGroup fx:id="Status" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="Female" layoutX="621.0" layoutY="44.0" mnemonicParsing="false" text="Женщина" toggleGroup="$Status" />
+         </children></AnchorPane>
+      <Text fill="WHITE" layoutX="282.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Карта пациента">
+         <font>
+            <Font name="Arial" size="26.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
