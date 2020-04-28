@@ -52,39 +52,26 @@ public class Controller {
             stage.show();
         });
 
-        SignIn_button.setOnAction(actionEvent -> {
-            String login = login_field.getText();
-            String password = password_field.getText();
-
-            if (!login.equals("") && !password.equals(""))
-                loginUser(login, password);
-            else
-                System.out.println("Login and password is empty");
-        });
-
-
-    }
-
-    private void loginUser(String login, String password) {
-        DataBaseConnect dbConnect = new DataBaseConnect();
-        User user1= new User();
-        user1.setLogin(login);
-        user1.setPassword(password);
-        ResultSet result = dbConnect.getUser(user1);
-
-        int counter = 0;
+        SignIn_button.setOnAction(event -> {
+            String login = login_field.getText().toString();
+            String password = password_field.getText().toString();
+            DataBaseConnect dbConnect = new DataBaseConnect();
+            User user = new User();
+            user.setLogin(login);
+            user.setPassword(password);
+            ResultSet result = dbConnect.getUser(user);
 
             try {
-                while (result.next()) {
-                    counter++;
+                if (!result.next()) {
+                    System.out.println("not login");
+                } else {
+                    System.out.println("Login");
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-
-
-            if (counter < 1) {
-                System.out.println("Success!");}
-
-        }
+        });
     }
+}
+
+
