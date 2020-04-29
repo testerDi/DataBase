@@ -12,6 +12,9 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import javax.annotation.PostConstruct;
+import javax.jws.soap.SOAPBinding;
+
 
 public class SignUpController {
 
@@ -77,22 +80,30 @@ public class SignUpController {
         private void signUpNewUser (){
         DataBaseConnect DBConnect = new DataBaseConnect();
 
-            String login = Login.getText();
-            String password = Password.getText();
-            String firstname = Firstname.getText();
-            String name = Name.getText();
-            String patronymic = Patronymic.getText();
-            String post = "";
-            if (Admin.isSelected())
-                post = "Admin";
-            else if (Doc.isSelected())
-                post = "Doctor";
-            else if (Nurse.isSelected())
-                post = "Nurse";
-            else if (Registr.isSelected())
-                post = "Registrator";
+            User user = new User();
+//            String login = Login.getText();
+//            String password = Password.getText();
+//            String firstname = Firstname.getText();
+//            String name = Name.getText();
+//            String patronymic = Patronymic.getText();
+//            String post = "";
 
-            User user = new User(firstname, name, patronymic, login, password, post);
+            user.setFirstname(Firstname.getText());
+            user.setName(Name.getText());
+            user.setPatronymic(Patronymic.getText());
+            user.setLogin(Login.getText());
+            user.setPassword(Password.getText());
+
+            if (Admin.isSelected())
+                user.setPost("Admin");
+            else if (Doc.isSelected())
+                user.setPost("Doctor");
+            else if (Nurse.isSelected())
+                user.setPost("Nurse");
+            else if (Registr.isSelected())
+                user.setPost("Registrator");
+
+            //User user = new User(firstname, name, patronymic, login, password, post);
 
             DBConnect.signUpUser(user);
 
