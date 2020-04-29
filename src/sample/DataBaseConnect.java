@@ -3,7 +3,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-
+import java.sql.ResultSet;
 public class DataBaseConnect extends Configs {
     Connection DBConnection;
 
@@ -42,9 +42,9 @@ public class DataBaseConnect extends Configs {
 
     public void signUpPatient(Patient patient) {
         String insert2 = "INSERT INTO " + Const.PATIENT_TABLE + "(" + Const.PATIENT_FIRSTNAME + "," + Const.PATIENT_NAME + ","
-                + Const.PATIENT_PATRONYMIC + "," + Const.PATIENT_BIRTHDATE + "," + Const.PATIENT_INSURANCE + "," + Const.PATIENT_FDIAGNOSE
-                + "," + Const.PATIENT_SDIAGNOSE + "," + Const.PATIENT_ANAMNESIS + "," + Const.PATIENT_ADDDIAGNOSTICS + ","
-                + Const.PATIENT_TREATMENT + "," + Const.PATIENT_GENDER + ")" + "VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+                + Const.PATIENT_PATRONYMIC + "," + Const.PATIENT_BIRTHDATE + "," + Const.PATIENT_INSURANCE + "," + Const.PATIENT_DIAGNOSE
+                + ","  + Const.PATIENT_ANAMNESIS + "," + Const.PATIENT_DIAGNOSTICS + ","
+                + Const.PATIENT_TREATMENT + "," + Const.PATIENT_GENDER + ")" + "VALUES(?,?,?,?,?,?,?,?,?,?)";
 
 
         try {
@@ -56,11 +56,10 @@ public class DataBaseConnect extends Configs {
             prSt2.setString(4, patient.getBirthdate());
             prSt2.setString(5, patient.getInsurance());
             prSt2.setString(6, patient.getfDiagnose());
-            prSt2.setString(7, patient.getsDiagnose());
-            prSt2.setString(8, patient.getAnamnesis());
-            prSt2.setString(9, patient.getDiagnostics());
-            prSt2.setString(10, patient.getTreatment());
-            prSt2.setString(11, patient.getGender());
+            prSt2.setString(7, patient.getAnamnesis());
+            prSt2.setString(8, patient.getDiagnostics());
+            prSt2.setString(9, patient.getTreatment());
+            prSt2.setString(10, patient.getGender());
             prSt2.executeUpdate();
         }
         catch (SQLException e) {
@@ -68,6 +67,25 @@ public class DataBaseConnect extends Configs {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+
+    }
+    public ResultSet getUser(User user){
+        ResultSet resultSet = null;
+        String select = "SELECT * FROM " + Const.USER_TABLE +" WHERE " +
+                Const.USER_LOGIN + " = ? AND " + Const.USER_PASSWORD + " = ?";
+
+        try {
+
+            PreparedStatement prSt3 = getDBConnection().prepareStatement(select);
+            prSt3.setString(1, user.getLogin());
+            prSt3.setString(2, user.getPassword());
+            resultSet = prSt3.executeQuery();
+                    } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return resultSet;
 
     }
 }

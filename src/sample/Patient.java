@@ -15,7 +15,7 @@ public class Patient {
 
 
     public Patient(String firstname, String name, String patronymic, String birthdate, String insurance,
-                   String fDiagnose, String sDiagnose, String anamnesis, String diagnostics, String treatment, String gender) {
+                   String fDiagnose, String anamnesis, String diagnostics, String treatment, String gender) {
 
         this.firstname = firstname;
         this.name = name;
@@ -76,14 +76,6 @@ public class Patient {
 
     public void setfDiagnose(String fDiagnose) {
         this.fDiagnose = fDiagnose;
-    }
-
-    public String getsDiagnose() {
-        return sDiagnose;
-    }
-
-    public void setsDiagnose(String sDiagnose) {
-        this.sDiagnose = sDiagnose;
     }
 
     public String getAnamnesis() {

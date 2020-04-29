@@ -18,7 +18,6 @@
             <TextField fx:id="BirthDate" layoutX="374.0" layoutY="80.0" promptText="Дата рождения" />
             <TextField fx:id="Insurance" layoutX="140.0" layoutY="80.0" promptText="№ Страховки" />
             <TextField fx:id="FDiagnose" layoutX="411.0" layoutY="138.0" prefHeight="50.0" prefWidth="300.0" promptText="Предварительный диагноз" />
-            <TextField fx:id="SDiagnose" layoutX="522.0" layoutY="225.0" prefHeight="50.0" prefWidth="220.0" promptText="Окончательный диагноз" />
             <TextField fx:id="Anamnesis" layoutX="14.0" layoutY="138.0" prefHeight="50.0" prefWidth="300.0" promptText="Анамнез" />
             <TextField fx:id="Diagnostics" layoutX="268.0" layoutY="225.0" prefHeight="50.0" prefWidth="220.0" promptText="Доп. диагностика" />
             <TextField fx:id="Treatment" layoutX="14.0" layoutY="225.0" prefHeight="50.0" prefWidth="220.0" promptText="Лечение" />
@@ -30,10 +29,12 @@
             </RadioButton>
             <RadioButton fx:id="Female" layoutX="621.0" layoutY="44.0" mnemonicParsing="false" text="Женщина" toggleGroup="$Status" />
          </children></AnchorPane>
-      <Text fill="WHITE" layoutX="282.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Карта пациента">
+      <Text fill="WHITE" layoutX="282.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Добавить пациента">
          <font>
             <Font name="Arial" size="26.0" />
          </font>
       </Text>
+      <Button fx:id="BackButton" layoutX="14.0" layoutY="20.0" mnemonicParsing="false" text="Назад" />
+      <Button fx:id="Card" layoutX="684.0" layoutY="20.0" mnemonicParsing="false" text="Карта" />
    </children>
 </AnchorPane>

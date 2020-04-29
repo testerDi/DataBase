@@ -1,12 +1,17 @@
 package sample;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.stage.Stage;
 
 public class PatientController {
 
@@ -35,9 +40,6 @@ public class PatientController {
     private TextField FDiagnose;
 
     @FXML
-    private TextField SDiagnose;
-
-    @FXML
     private TextField Anamnesis;
 
     @FXML
@@ -59,7 +61,27 @@ public class PatientController {
     private RadioButton Female;
 
     @FXML
+    private Button BackButton;
+
+    @FXML
+    private Button Card;
+
+    @FXML
     void initialize() {
+        BackButton.setOnAction(event ->{
+            BackButton.getScene().getWindow().hide();
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("Login.fxml"));
+            try {
+                loader.load();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Parent root = loader.getRoot ();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } );
     AddPatient.setOnAction(event ->{
         signUpNewPatient();
     });
@@ -71,16 +93,15 @@ public class PatientController {
         String patronymic = Patronymic.getText();
         String birthdate = BirthDate.getText();
         String insurance = Insurance.getText();
-        String fDiagnose = FDiagnose.getText();
-        String sDiagnose = SDiagnose.getText();
+        String Diagnose = FDiagnose.getText();
         String anamnesis = Anamnesis.getText();
         String diagnostics = Diagnostics.getText();
         String treatment = Treatment.getText();
         String gender = "";
-        if (Male.isSelected()) gender = "Мужчина";
-        else  if (Female.isSelected()) gender = "Женщина";
+        if (Male.isSelected()) gender = "Male";
+        else  if (Female.isSelected()) gender = "Female";
         Patient patient = new Patient(firstname, name, patronymic, birthdate, insurance,
-                fDiagnose, sDiagnose, anamnesis, diagnostics, treatment, gender);
+                Diagnose, anamnesis, diagnostics, treatment, gender);
         DBConnect.signUpPatient(patient);
     }
 
