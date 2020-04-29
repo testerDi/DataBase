@@ -14,10 +14,13 @@ public class Main extends Application {
         primaryStage.setTitle("Patients Base");
         primaryStage.setScene(new Scene(root, 750, 450));
         primaryStage.show();
+        //System.out.println(System.getProperty("javafx.runtime.version"));
     }
 
 
     public static void main(String[] args) {
+
+        //System.out.println(System.getProperty("java.version"));
         launch(args);
     }
 }
