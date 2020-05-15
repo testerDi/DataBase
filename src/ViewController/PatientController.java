@@ -1,4 +1,4 @@
-package sample;
+package ViewController;
 
 import java.io.IOException;
 import java.net.URL;
@@ -12,6 +12,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
+import sample.Patient;
 
 public class PatientController {
 
@@ -71,7 +72,7 @@ public class PatientController {
         BackButton.setOnAction(event ->{
             BackButton.getScene().getWindow().hide();
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("Login.fxml"));
+            loader.setLocation(getClass().getResource("Forms/Login.fxml"));
             try {
                 loader.load();
             } catch (IOException e) {

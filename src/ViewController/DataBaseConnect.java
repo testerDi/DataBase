@@ -1,4 +1,9 @@
-package sample;
+package ViewController;
+import sample.Configs;
+import sample.Const;
+import sample.Patient;
+import sample.User;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -23,6 +28,7 @@ public class DataBaseConnect extends Configs {
         try {
 
             PreparedStatement prSt = getDBConnection().prepareStatement(insert);
+            //prSt.setString(1, user.getUserID()); // get the id for User
             prSt.setString(1, user.getFirstname());
             prSt.setString(2, user.getName());
             prSt.setString(3, user.getPatronymic());

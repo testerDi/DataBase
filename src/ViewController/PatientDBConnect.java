@@ -1,4 +1,4 @@
-package sample;
+package ViewController;
 
 public class PatientDBConnect {
 }

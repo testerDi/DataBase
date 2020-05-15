@@ -1,4 +1,4 @@
-package sample;
+package ViewController;
 
 import java.io.IOException;
 import java.net.URL;
@@ -11,9 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
-import javax.annotation.PostConstruct;
-import javax.jws.soap.SOAPBinding;
+import sample.User;
 
 
 public class SignUpController {
@@ -62,7 +60,7 @@ public class SignUpController {
         BackButton.setOnAction(actionEvent -> {
             BackButton.getScene().getWindow().hide();
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("Login.fxml"));
+            loader.setLocation(getClass().getResource("../Forms/Login.fxml"));
             try {
                 loader.load();
             } catch (IOException e) {
@@ -73,9 +71,10 @@ public class SignUpController {
             stage.setScene(new Scene(root));
             stage.show();
         } );
+
         SignUp.setOnAction(event -> {
             signUpNewUser();
-    });
+        });
     }
         private void signUpNewUser (){
         DataBaseConnect DBConnect = new DataBaseConnect();
@@ -87,7 +86,7 @@ public class SignUpController {
 //            String name = Name.getText();
 //            String patronymic = Patronymic.getText();
 //            String post = "";
-
+            //user.setUserID();
             user.setFirstname(Firstname.getText());
             user.setName(Name.getText());
             user.setPatronymic(Patronymic.getText());
@@ -108,5 +107,5 @@ public class SignUpController {
             DBConnect.signUpUser(user);
 
 
-    }
+        }
 }

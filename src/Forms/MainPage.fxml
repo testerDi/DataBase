@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="750.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainPageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="750.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ViewController.MainPageController">
    <children>
       <AnchorPane prefHeight="75.0" prefWidth="750.0" style="-fx-background-color: #008080;">
          <children>
-            <Button fx:id="Exit" layoutX="650.0" layoutY="25.0" mnemonicParsing="false" text="Выход" />
+            <Button fx:id="signOut" layoutX="650.0" layoutY="25.0" mnemonicParsing="false" text="Выход" />
             <Button fx:id="AddPatient" layoutX="50.0" layoutY="25.0" mnemonicParsing="false" text="Добавить пациента" />
          </children></AnchorPane>
       <GridPane layoutY="75.0" prefHeight="375.0" prefWidth="750.0">
